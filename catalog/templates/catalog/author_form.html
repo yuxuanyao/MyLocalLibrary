@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class = "concontainer">
+<div class = "login-container">
+	<h1>Add an Author</h1>
+
+	{% if perms.catalog.can_mark_returned %}
+		<form class="form_create" action="" method="post">
+		    {% csrf_token %}
+		    <table  style="color:rgb(120,120,120);">
+		    {{ form.as_table }}
+		    </table>
+		    <input type="submit" value="Submit" />  
+		</form>
+	{% endif %}
+
+	</div>
+</div>
+{% endblock %}

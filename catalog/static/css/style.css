@@ -1,0 +1,167 @@
+body { 
+  background: url("openbook2.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.layer {
+    background-color: rgba(100, 100, 100, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+label {
+    color: white;
+}
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+ul {
+    color: white;
+    padding-bottom: 20px;
+    list-style: circle;
+}
+
+ul li a{
+    padding: 8px 8px 8px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(255,255,255);
+    display: inline-block;
+}
+
+ul li a:hover {
+  color: rgb(0,0,0);
+  text-decoration: none;
+}
+.form_login{
+    padding-left: 70px;
+}
+
+.form_create {
+    padding-left: 70px;
+
+}
+
+input[type=submit] {
+    border-radius: 5px;
+    background-color: rgb(40,40,40);
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+input,select {
+    border-radius: 5px;
+}
+.loginhelper {
+    margin-top: 20px;
+}
+.concontainer {
+    padding-right: 900px;
+    padding-top: 100px;
+}
+
+.login-container {
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(255,255,255);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: rgb(200,200,200);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.user-info {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(200,200,200);
+    display: block;
+
+
+
+
+
+

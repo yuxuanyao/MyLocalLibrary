@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>My Library</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="layer">
+<div class="container-fluid">
+
+<div class="row">
+  <div class="col-sm-2">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'books' %}">All books</a></li>
+        <li><a href="{% url 'authors' %}">All authors</a></li>
+      </ul>
+     
+      <ul class="sidebar-nav">
+       {% if user.is_authenticated %}
+         <li class = "user-info">User: {{ user.get_username }}</li>
+         <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
+         <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+       {% else %}
+         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+       {% endif %} 
+      </ul>
+      
+
+       {% if user.is_staff %}
+       <hr />
+       <ul class="sidebar-nav">
+       <li class="user-info">Staff</li>
+       {% if perms.catalog.can_mark_returned %}
+       <li><a href="{% url 'all-borrowed' %}">All borrowed</a></li>
+       <li><a href="{% url 'author_create' %}">Add Author</a></li>
+       <li><a href="{% url 'book_create' %}">Add Book</a></li>
+       {% endif %}
+       </ul>
+        {% endif %}
+      {% endblock %}
+    </div>
+      <span style="font-size:30px;cursor:pointer;color:rgb(255,255,255);" onclick="openNav()">&#9776; </span>
+  </div>
+  <div class="col-sm-10 ">
+  {% block content %}{% endblock %}
+  
+  {% block pagination %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% endblock %} 
+  
+  
+  </div>
+</div>
+
+</div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+</body>
+</html>
